@@ -34,6 +34,9 @@ spec:
     spec:
       serviceAccountName: default
       volumes:
+        - name: app-config-rhdh
+          configMap:
+            name: app-config-rhdh
         - ephemeral:
             volumeClaimTemplate:
               spec:
@@ -87,6 +90,8 @@ spec:
             - "--config"
             - "dynamic-plugins-root/app-config.dynamic-plugins.yaml"
             - "--config"
+            - "/opt/app-root/src/app-config-rhdh.yaml"
+            - "--config"
             - "/opt/app-root/src/app-config-from-configmap.yaml"
           readinessProbe:
             failureThreshold: 3
@@ -137,6 +142,9 @@ spec:
               containerPort: 7007
               protocol: TCP
           volumeMounts:
+            - name: app-config-rhdh
+              mountPath: "/opt/app-root/src/app-config-rhdh.yaml"
+              subPath: app-config-rhdh.yaml
             - name: backstage-app-config
               mountPath: "/opt/app-root/src/app-config-from-configmap.yaml"
               subPath: app-config.yaml

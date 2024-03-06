@@ -12,7 +12,7 @@ resources:
 # - rhdh/backstage/templates/route.yaml
 # - rhdh/backstage/templates/secrets.yaml
 # - rhdh/backstage/templates/tests/test-connection.yaml
-# - app-config-rhdh.yaml
+- app-config-rhdh.yaml
 - ingress.yaml
 - rhdh-secrets.sealed.yaml
 - postgresql.sealed.yaml
