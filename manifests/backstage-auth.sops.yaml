@@ -1,0 +1,47 @@
+# Source: backstage/templates/secrets.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+    name: b4mad-racing-developer-hub-backstage-auth
+    namespace: b4mad-racing-developer-hub
+    labels:
+        app.kubernetes.io/name: backstage
+        helm.sh/chart: backstage-2.15.0
+        app.kubernetes.io/instance: b4mad-racing-developer-hub
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/component: backstage
+    annotations: null
+type: Opaque
+data:
+    backend-secret: ENC[AES256_GCM,data:48IH030hshgkYU2u70Dc0c/7BagAgd3PKioryHcFTSg=,iv:8Su0VFlnk0tIEObphePrjXI7LpxAjDUqcnoQrcz5Mwc=,tag:rsLNNILVQNbYWl702y+iKQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2024-03-06T15:36:59Z"
+    mac: ENC[AES256_GCM,data:Kq46mHhWK7PGayaiyhTkHwroAJ5e6I6h0CxSDvrXl5JYdBqFqf9GFY507FQ5QF3+75HW8FxMOOwd1IJHOOo2I0rvtwf/rFlzQ3dfm6ZSZFxh9vGh56IDjoYADJ9/bCzPlxgrj4se/SM6l8SMprRUtOyARfmCWQW2WoPaUJypjbE=,iv:ZAE1+xSZWbOioJwcXsdMkKzDB1Kgz7Yd6JmnpqE2EgE=,tag:pexytjM15tpzfcBZwFNoXQ==,type:str]
+    pgp:
+        - created_at: "2024-03-06T15:36:59Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA+XrDaMvM3KsARAAnPRx5qUWdkpJhVOsJe/Nu3oEwdRSPlazVlsuvQhLRHlC
+            3t/gCF8QN1UtnUMHNZOCXB/3ks5u+Yx9tW1Gm5pbIcDF23/gAJb95Gxz22bLryya
+            GNMVNdksB0r1p3ZujWfNc+DjQgJKTMFDvHj0RTRJP9KjRQT2xU9yxXKpLVmswXDV
+            BMMHo9k39dBwXHGyycNkUBMz2ZbC/guWB5sbXk4r7tjldjbg0cz3Cu/3fSS3ewRg
+            WtMVMbK2Bfw2aFhm/3qMIxOpv+JGrQ6AyqekfShG40trlnqbQXpUUQht0/TezPP1
+            JDmFBEwOQIrZ5XZdqN8ThtFVbMnF6tztH/AvdZQMoDw3gjQtfzc8tn0AmJhc+dgn
+            fKisgjPqiERP5eBanaL/AWcuTQXCPoxZgnmY6iNkK58wQwDaCcFWj59U2nG5WrvS
+            CVz2S8MncDZgZPvgxPf1y1tAop0TaRJu+Ns8o2qvEfqvl/CTuAIDdzYjD+IxdyHv
+            hERxztKAeIHeAs+lMS+YN52wJGOd+Tp3ZYVx7GWIhzQHSQ3LJi1kEAIgcXL/LHEi
+            xUr5c77WaQ8HelPcTo8hJud+m+6upUnr6/lzUsqx/0xGhU+82o8UkYMVG5TFCYir
+            6ll0lVE/q/dRyJKjCtNUSVI6TaJQHdJtquR8aiKfY9hRwobeC2e/wCO7vGmYxeTS
+            XAFSRVIVGSnqbqK5bp8oJZXCqIw0ZMc4ih24WBA5f5S+C3O4grvEvgkHOQCbcrFH
+            Bh4PZEaHyyWFKmGSmbJOYyoZ+DoA6RzrN9Kcg3ZSRdxHOKXO6XJrXRHZgrCH
+            =dxex
+            -----END PGP MESSAGE-----
+          fp: 04DAFCD9470A962A2F272984E5EB0DA32F3372AC
+    encrypted_regex: ^(data|stringData|tls)$
+    version: 3.8.1

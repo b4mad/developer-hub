@@ -12,3 +12,5 @@
 *.vsix
 
 manifests/rhdh-secrets.yaml
+manifests/postgresql.yaml
+manifests/backstage-auth.yaml

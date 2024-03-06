@@ -11,13 +11,13 @@ global:
     # Every item defines the plugin `package` as a [NPM package spec](https://docs.npmjs.com/cli/v10/using-npm/package-spec),
     # an optional `pluginConfig` with plugin-specific backstage configuration, and an optional `disabled` flag to disable/enable a plugin
     # listed in `includes` files. It also includes an `integrity` field that is used to verify the plugin package [integrity](https://w3c.github.io/webappsec-subresource-integrity/#integrity-metadata-description).
-    plugins:
-      - disabled: false
-        package: >-
-          ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-dynamic
-      - disabled: false
-        package: >-
-          ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-org-dynamic
+    plugins: []
+      # - disabled: false
+      #   package: >-
+      #     ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-dynamic
+      # - disabled: false
+      #   package: >-
+      #     ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-org-dynamic
 
   # -- Shorthand for users who do not want to specify a custom HOSTNAME. Used ONLY with the DEFAULT upstream.backstage.appConfig value and with OCP Route enabled.
   clusterRouterBase: "apps.phobos.b4mad.emea.operate-first.cloud"
@@ -172,6 +172,7 @@ upstream:
       registry: quay.io
       repository: fedora/postgresql-15
       tag: latest
+    existingSecret: b4mad-racing-developer-hub-postgresql
     auth:
       secretKeys:
         adminPasswordKey: postgres-password
