@@ -9,10 +9,11 @@ resources:
 - rhdh/backstage/charts/upstream/templates/backstage-deployment.yaml
 - rhdh/backstage/charts/upstream/templates/service.yaml
 - rhdh/backstage/templates/dynamic-plugins-configmap.yaml
-- rhdh/backstage/templates/route.yaml
+# - rhdh/backstage/templates/route.yaml
 # - rhdh/backstage/templates/secrets.yaml
 # - rhdh/backstage/templates/tests/test-connection.yaml
 # - app-config-rhdh.yaml
+- ingress.yaml
 - rhdh-secrets.sealed.yaml
 - postgresql.sealed.yaml
 - backstage-auth.sealed.yaml
