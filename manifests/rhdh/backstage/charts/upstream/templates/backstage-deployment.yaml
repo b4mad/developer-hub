@@ -1,0 +1,144 @@
+---
+# Source: backstage/charts/upstream/templates/backstage-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: b4mad-racing-developer-hub-backstage
+  namespace: "b4mad-racing"
+  labels: 
+    app.kubernetes.io/name: backstage
+    helm.sh/chart: upstream-1.9.1
+    app.kubernetes.io/instance: b4mad-racing-developer-hub
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/component: backstage
+  annotations:
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: backstage
+      app.kubernetes.io/instance: b4mad-racing-developer-hub
+      app.kubernetes.io/component: backstage
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: backstage
+        helm.sh/chart: upstream-1.9.1
+        app.kubernetes.io/instance: b4mad-racing-developer-hub
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/component: backstage
+      annotations:
+        checksum/app-config: b21842a7e1211d48cf4da915d523cf7f1114e31952b89ee87687f7d2a67b8b00
+        checksum/dynamic-plugins: '9ee997fba6c2be340aa99de1665de3e2d3072907fef964b36c86d1c9913d0970'
+    spec:
+      serviceAccountName: default
+      volumes:
+        - ephemeral:
+            volumeClaimTemplate:
+              spec:
+                accessModes:
+                - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 2Gi
+          name: dynamic-plugins-root
+        - configMap:
+            defaultMode: 420
+            name: dynamic-plugins
+            optional: true
+          name: dynamic-plugins
+        - name: dynamic-plugins-npmrc
+          secret:
+            defaultMode: 420
+            optional: true
+            secretName: dynamic-plugins-npmrc
+        - name: backstage-app-config
+          configMap:
+            name: b4mad-racing-developer-hub-backstage-app-config
+      
+      initContainers:
+        - command:
+          - ./install-dynamic-plugins.sh
+          - /dynamic-plugins-root
+          env:
+          - name: NPM_CONFIG_USERCONFIG
+            value: /opt/app-root/src/.npmrc.dynamic-plugins
+          image: 'quay.io/janus-idp/backstage-showcase:latest'
+          imagePullPolicy: Always
+          name: install-dynamic-plugins
+          volumeMounts:
+          - mountPath: /dynamic-plugins-root
+            name: dynamic-plugins-root
+          - mountPath: /opt/app-root/src/dynamic-plugins.yaml
+            name: dynamic-plugins
+            readOnly: true
+            subPath: dynamic-plugins.yaml
+          - mountPath: /opt/app-root/src/.npmrc.dynamic-plugins
+            name: dynamic-plugins-npmrc
+            readOnly: true
+            subPath: .npmrc
+          workingDir: /opt/app-root/src
+      containers:
+        - name: backstage-backend
+          image: quay.io/janus-idp/backstage-showcase:latest
+          imagePullPolicy: "Always"
+          args:
+            - "--config"
+            - "dynamic-plugins-root/app-config.dynamic-plugins.yaml"
+            - "--config"
+            - "/opt/app-root/src/app-config-from-configmap.yaml"
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthcheck
+              port: 7007
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 2
+            timeoutSeconds: 2
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthcheck
+              port: 7007
+              scheme: HTTP
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 2
+          env:
+            - name: APP_CONFIG_backend_listen_port
+              value: "7007"
+            - name: POSTGRES_HOST
+              value: b4mad-racing-developer-hub-postgresql
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_USER
+              value: bn_backstage
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: b4mad-racing-developer-hub-postgresql
+                  key: password
+            - name: BACKEND_SECRET
+              valueFrom:
+                secretKeyRef:
+                  key: backend-secret
+                  name: 'b4mad-racing-developer-hub-backstage-auth'
+            - name: POSTGRESQL_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: postgres-password
+                  name: 'b4mad-racing-developer-hub-postgresql'
+          ports:
+            - name: backend
+              containerPort: 7007
+              protocol: TCP
+          volumeMounts:
+            - name: backstage-app-config
+              mountPath: "/opt/app-root/src/app-config-from-configmap.yaml"
+              subPath: app-config.yaml
+            - mountPath: /opt/app-root/src/dynamic-plugins-root
+              name: dynamic-plugins-root

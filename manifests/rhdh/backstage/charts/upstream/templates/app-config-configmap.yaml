@@ -1,0 +1,21 @@
+---
+# Source: backstage/charts/upstream/templates/app-config-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: b4mad-racing-developer-hub-backstage-app-config
+data:
+  app-config.yaml: |
+    app:
+      baseUrl: https://b4mad-racing-developer-hub-backstage-b4mad-racing.apps.phobos.b4mad.emea.operate-first.cloud
+    backend:
+      auth:
+        keys:
+        - secret: ${BACKEND_SECRET}
+      baseUrl: https://b4mad-racing-developer-hub-backstage-b4mad-racing.apps.phobos.b4mad.emea.operate-first.cloud
+      cors:
+        origin: https://b4mad-racing-developer-hub-backstage-b4mad-racing.apps.phobos.b4mad.emea.operate-first.cloud
+      database:
+        connection:
+          password: ${POSTGRESQL_ADMIN_PASSWORD}
+          user: postgres

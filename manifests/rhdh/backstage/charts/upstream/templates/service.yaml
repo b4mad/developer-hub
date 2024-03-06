@@ -1,0 +1,26 @@
+---
+# Source: backstage/charts/upstream/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: b4mad-racing-developer-hub-backstage
+  namespace: "b4mad-racing" 
+  labels:
+    app.kubernetes.io/name: backstage
+    helm.sh/chart: upstream-1.9.1
+    app.kubernetes.io/instance: b4mad-racing-developer-hub
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/component: backstage
+spec:
+  type: ClusterIP
+  sessionAffinity: None
+  ports:
+    - name: http-backend
+      port: 7007
+      targetPort: backend
+      protocol: TCP
+      nodePort: null  
+  selector:
+    app.kubernetes.io/name: backstage
+    app.kubernetes.io/instance: b4mad-racing-developer-hub
+    app.kubernetes.io/component: backstage

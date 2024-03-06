@@ -1,0 +1,26 @@
+---
+# Source: backstage/templates/route.yaml
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: b4mad-racing-developer-hub-backstage
+  namespace: "b4mad-racing"
+  labels:
+    app.kubernetes.io/name: backstage
+    helm.sh/chart: backstage-2.15.0
+    app.kubernetes.io/instance: b4mad-racing-developer-hub
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/component: backstage
+spec:
+  host: b4mad-racing-developer-hub-backstage-b4mad-racing.apps.phobos.b4mad.emea.operate-first.cloud
+  path: /
+  port:
+    targetPort: http-backend
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: b4mad-racing-developer-hub-backstage
+    weight: 100
+  wildcardPolicy: None
