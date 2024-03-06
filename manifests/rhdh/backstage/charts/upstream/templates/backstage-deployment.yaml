@@ -4,7 +4,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: b4mad-racing-developer-hub-backstage
-  namespace: "b4mad-racing"
+  namespace: "b4mad-racing-developer-hub"
   labels: 
     app.kubernetes.io/name: backstage
     helm.sh/chart: upstream-1.9.1
@@ -29,7 +29,7 @@ spec:
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/component: backstage
       annotations:
-        checksum/app-config: b21842a7e1211d48cf4da915d523cf7f1114e31952b89ee87687f7d2a67b8b00
+        checksum/app-config: 43ce2fe3f8990c25564f786cc6f3dfb9a349e1ddd3ee036b5f08003889731bfa
         checksum/dynamic-plugins: '9ee997fba6c2be340aa99de1665de3e2d3072907fef964b36c86d1c9913d0970'
     spec:
       serviceAccountName: default

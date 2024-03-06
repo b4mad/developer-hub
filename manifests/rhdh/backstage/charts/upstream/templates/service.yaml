@@ -4,7 +4,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: b4mad-racing-developer-hub-backstage
-  namespace: "b4mad-racing" 
+  namespace: "b4mad-racing-developer-hub" 
   labels:
     app.kubernetes.io/name: backstage
     helm.sh/chart: upstream-1.9.1

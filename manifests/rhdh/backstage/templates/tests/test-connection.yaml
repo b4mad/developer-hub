@@ -21,3 +21,26 @@ spec:
         - |
           curl --connect-timeout 5 --max-time 20 --retry 20 --retry-delay 10 --retry-max-time 60 --retry-all-errors b4mad-racing-developer-hub-backstage:7007
   restartPolicy: Never
+---
+# Source: backstage/templates/tests/test-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "b4mad-racing-developer-hub-backstage-test-connection"
+  labels:
+    app.kubernetes.io/name: backstage
+    helm.sh/chart: backstage-2.15.0
+    app.kubernetes.io/instance: b4mad-racing-developer-hub
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/component: backstage
+  annotations:
+      helm.sh/hook: test
+spec:
+  containers:
+    - name: curl
+      image: quay.io/curl/curl:latest
+      command: ["/bin/sh", "-c"]
+      args:
+        - |
+          curl --connect-timeout 5 --max-time 20 --retry 20 --retry-delay 10 --retry-max-time 60 --retry-all-errors b4mad-racing-developer-hub-backstage:7007
+  restartPolicy: Never

@@ -4,7 +4,7 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: b4mad-racing-developer-hub-backstage
-  namespace: "b4mad-racing"
+  namespace: "b4mad-racing-developer-hub"
   labels:
     app.kubernetes.io/name: backstage
     helm.sh/chart: backstage-2.15.0
@@ -12,7 +12,7 @@ metadata:
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: backstage
 spec:
-  host: b4mad-racing-developer-hub-backstage-b4mad-racing.apps.phobos.b4mad.emea.operate-first.cloud
+  host: b4mad-racing-developer-hub-backstage-b4mad-racing-developer-hub.apps.phobos.b4mad.emea.operate-first.cloud
   path: /
   port:
     targetPort: http-backend
