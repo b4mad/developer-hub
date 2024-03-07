@@ -27,10 +27,10 @@ data:
             clientSecret: ${GITHUB_APP_CLIENT_SECRET}
     catalog:
       providers:
-        # githubOrg:
-        #   default:
-        #     id: production
-        #     orgUrl: 'https://github.com/b4mad'
+        githubOrg:
+          default:
+            id: production
+            orgUrl: 'https://github.com/b4mad'
         github:
           providerId:
             organization: 'b4mad'
