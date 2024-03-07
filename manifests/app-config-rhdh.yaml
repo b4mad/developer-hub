@@ -6,6 +6,15 @@ data:
   app-config-rhdh.yaml: |
     app:
       title: B4mad Racing Developer Hub
+    proxy:
+      endpoints:
+        # customize developer hub instance
+        '/developer-hub':
+          target: https://raw.githubusercontent.com/
+          pathRewrite:
+            '^/api/proxy/developer-hub': '/b4mad/racing-developer-hub/main/app/public/homepage/data.json'
+          changeOrigin: true
+          secure: true
     integrations:
       github:
         - host: github.com

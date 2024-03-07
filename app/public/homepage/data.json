@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Community",
+    "isExpanded": false,
+    "links": [
+      {
+        "iconUrl": "/homepage/icons/icons8/web.png",
+        "label": "Website",
+        "url": "https://b4mad.racing"
+      },
+      {
+        "iconUrl": "/homepage/icons/icons8/github.png",
+        "label": "GitHub",
+        "url": "https://github.com/orgs/b4mad"
+      },
+      {
+        "iconUrl": "/homepage/icons/icons8/discord-new.png",
+        "label": "Discord",
+        "url": "https://discord.com/invite/MaUQuSGSbJ"
+      }
+    ]
+  },
+  {
+    "title": "OpenShift Clusters",
+    "isExpanded": true,
+    "links": [
+      {
+        "iconUrl": "/homepage/icons/icons8/openshift.png",
+        "label": "OpenShift",
+        "url": "https://docs.openshift.com/"
+      }
+    ]
+  }
+]
