@@ -7,14 +7,14 @@ metadata:
 data:
   app-config.yaml: |
     app:
-      baseUrl: https://b4mad-racing-developer-hub-backstage-b4mad-racing-developer-hub.apps.phobos.b4mad.emea.operate-first.cloud
+      baseUrl: https://developer.b4mad.racing
     backend:
       auth:
         keys:
         - secret: ${BACKEND_SECRET}
-      baseUrl: https://b4mad-racing-developer-hub-backstage-b4mad-racing-developer-hub.apps.phobos.b4mad.emea.operate-first.cloud
+      baseUrl: https://developer.b4mad.racing
       cors:
-        origin: https://b4mad-racing-developer-hub-backstage-b4mad-racing-developer-hub.apps.phobos.b4mad.emea.operate-first.cloud
+        origin: https://developer.b4mad.racing
       database:
         connection:
           password: ${POSTGRESQL_ADMIN_PASSWORD}

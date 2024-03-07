@@ -20,10 +20,10 @@ global:
       #     ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-org-dynamic
 
   # -- Shorthand for users who do not want to specify a custom HOSTNAME. Used ONLY with the DEFAULT upstream.backstage.appConfig value and with OCP Route enabled.
-  clusterRouterBase: "apps.phobos.b4mad.emea.operate-first.cloud"
+  clusterRouterBase: ""
   # -- Custom hostname shorthand, overrides `global.clusterRouterBase`, `upstream.ingress.host`, `route.host`, and url values in `upstream.backstage.appConfig`.
   # If neither `global.clusterRouterBase` nor `global.host` are set, the helm chart will attempt to autofill with the hostname of the [OCP Ingress configuration](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/networking/configuring-ingress#nw-installation-ingress-config-asset_configuring-ingress)
-  host: ""
+  host: "developer.b4mad.racing"
   # -- Enable service authentication within Backstage instance
   auth:
     # -- Backend service to service authentication
@@ -91,6 +91,8 @@ upstream:
       periodSeconds: 10
       successThreshold: 1
       timeoutSeconds: 2
+    extraEnvVarsSecrets:
+      - rhdh-secrets
     extraEnvVars:
       - name: BACKEND_SECRET
         valueFrom:
@@ -204,7 +206,7 @@ route:
   annotations: {}
 
   # -- Enable the creation of the route resource
-  enabled: true
+  enabled: false
 
   # -- Set the host attribute to a custom value. If not set, OpenShift will generate it, please make sure to match your baseUrl
   host: "{{ .Values.global.host }}"

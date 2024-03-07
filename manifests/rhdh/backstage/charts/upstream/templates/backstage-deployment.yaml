@@ -29,7 +29,7 @@ spec:
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/component: backstage
       annotations:
-        checksum/app-config: 43ce2fe3f8990c25564f786cc6f3dfb9a349e1ddd3ee036b5f08003889731bfa
+        checksum/app-config: 7115ed848435172ac25f3fccfce99fffc0163d20fbc3eec5968cced8d220ab42
         checksum/dynamic-plugins: 'f1f9a92f14a31362d7eb30e67ac1458faf1c685765610f93a8967194d8bc1a5f'
     spec:
       serviceAccountName: default
@@ -113,6 +113,9 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             timeoutSeconds: 2
+          envFrom:
+            - secretRef:
+                name: rhdh-secrets
           env:
             - name: APP_CONFIG_backend_listen_port
               value: "7007"
