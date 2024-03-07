@@ -25,19 +25,22 @@ data:
           development:
             clientId: ${GITHUB_APP_CLIENT_ID}
             clientSecret: ${GITHUB_APP_CLIENT_SECRET}
-    # catalog:
-    #   providers:
-    #     githubOrg:
-    #       default:
-    #         id: production
-    #         orgUrl: 'https://github.com/b4mad'
-    #     github:
-    #       providerId:
-    #         organization: b4mad
-    #         schedule:
-    #           frequency:
-    #             minutes: 30
-    #           initialDelay:
-    #             seconds: 15
-    #           timeout:
-    #             minutes: 3
+    catalog:
+      providers:
+        # githubOrg:
+        #   default:
+        #     id: production
+        #     orgUrl: 'https://github.com/b4mad'
+        github:
+          providerId:
+            organization: 'b4mad'
+            filters:
+              branch: 'main'
+              repository: 'racing-.*'
+            schedule:
+              frequency:
+                minutes: 30
+              initialDelay:
+                seconds: 15
+              timeout:
+                minutes: 3

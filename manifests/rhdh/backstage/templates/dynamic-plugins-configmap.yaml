@@ -8,4 +8,6 @@ data:
   dynamic-plugins.yaml: |
     includes:
     - dynamic-plugins.default.yaml
-    plugins: []
+    plugins:
+    - disabled: false
+      package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-dynamic

@@ -13,6 +13,14 @@ helm template b4mad-racing-developer-hub redhat-developer/backstage \
   --output-dir rhdh
 ```
 
+Then restore unwanted changes
+
+```shell
+git restore rhdh/backstage/charts/upstream/charts/postgresql/templates/secrets.yaml
+git restore rhdh/backstage/templates/secrets.yaml
+git restore rhdh/backstage/templates/tests/test-connection.yaml
+```
+
 ## secrets
 
 We are using [sealed secrets](https://sealed-secrets.netlify.app/),
