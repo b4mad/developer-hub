@@ -42,18 +42,32 @@ data:
                 ${GITHUB_APP_PRIVATE_KEY}
     auth:
       # see https://backstage.io/docs/auth/ to learn about auth providers
-      environment: development
+      environment: production
       providers:
         github:
-          development:
+          production:
             clientId: ${GITHUB_APP_CLIENT_ID}
             clientSecret: ${GITHUB_APP_CLIENT_SECRET}
     catalog:
+      readonly: true
+      rules:
+        - allow:
+            - Component
+            - System
+            - Location
+            - User
+            - Group
+            - Domain
+            - Api
+            - Resource
+      locations:
+        - type: url
+          target: https://github.com/b4mad/racing-manifests/blob/main/catalog/all.yaml
       providers:
-        # githubOrg:
-        #   default:
-        #     id: production
-        #     orgUrl: 'https://github.com/b4mad'
+        githubOrg:
+          default:
+            id: production
+            orgUrl: 'https://github.com/b4mad'
         github:
           providerId:
             organization: 'b4mad'
