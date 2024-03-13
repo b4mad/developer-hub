@@ -8,7 +8,7 @@ helm repo add backstage https://backstage.github.io/charts
 helm repo add redhat-developer https://redhat-developer.github.io/rhdh-chart
 
 helm template b4mad-racing-developer-hub redhat-developer/backstage \
-  --values values.yaml \
+  --values values-janus.yaml \
   --namespace b4mad-racing-developer-hub \
   --output-dir helm/janus
 ```
