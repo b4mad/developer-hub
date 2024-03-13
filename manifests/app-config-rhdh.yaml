@@ -16,9 +16,9 @@ data:
             headerColor2: "#2e8b00"
             navigationIndicatorColor: "#359608"
           dark:
-            primaryColor: "#005500"
-            headerColor1: "#359500"
-            headerColor2: "#369608"
+            primaryColor: "#00be00"
+            headerColor1: "#3daf00"
+            headerColor2: "#359b06"
             navigationIndicatorColor: "#359508"
     proxy:
       endpoints:
