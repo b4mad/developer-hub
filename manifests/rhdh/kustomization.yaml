@@ -1,19 +1,21 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namespace: b4mad-racing-developer-hub-rhdh
 resources:
-- rhdh/backstage/charts/upstream/charts/postgresql/templates/primary/statefulset.yaml
-- rhdh/backstage/charts/upstream/charts/postgresql/templates/primary/svc-headless.yaml
-- rhdh/backstage/charts/upstream/charts/postgresql/templates/primary/svc.yaml
-# - rhdh/backstage/charts/upstream/charts/postgresql/templates/secrets.yaml
-- rhdh/backstage/charts/upstream/templates/app-config-configmap.yaml
-- rhdh/backstage/charts/upstream/templates/backstage-deployment.yaml
-- rhdh/backstage/charts/upstream/templates/service.yaml
-- rhdh/backstage/templates/dynamic-plugins-configmap.yaml
-# - rhdh/backstage/templates/route.yaml
-# - rhdh/backstage/templates/secrets.yaml
-# - rhdh/backstage/templates/tests/test-connection.yaml
+- helm/developer-hub/charts/upstream/charts/postgresql/templates/primary/statefulset.yaml
+- helm/developer-hub/charts/upstream/charts/postgresql/templates/primary/svc-headless.yaml
+- helm/developer-hub/charts/upstream/charts/postgresql/templates/primary/svc.yaml
+# - helm/developer-hub/charts/upstream/charts/postgresql/templates/secrets.yaml
+- helm/developer-hub/charts/upstream/templates/app-config-configmap.yaml
+- helm/developer-hub/charts/upstream/templates/backstage-deployment.yaml
+- helm/developer-hub/charts/upstream/templates/service.yaml
+- helm/developer-hub/templates/dynamic-plugins-configmap.yaml
+# - helm/developer-hub/templates/route.yaml
+# - helm/developer-hub/templates/secrets.yaml
+# - helm/developer-hub/templates/tests/test-connection.yaml
 - app-config-rhdh.yaml
 - ingress.yaml
 - rhdh-secrets.sealed.yaml
 - postgresql.sealed.yaml
 - backstage-auth.sealed.yaml
+- rhdh-pull-secret.sealed.yaml

@@ -1,0 +1,22 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: b4mad-racing-developer-hub-backstage-auth
+  namespace: b4mad-racing-developer-hub-rhdh
+spec:
+  encryptedData:
+    backend-secret: AgBinh3np8v8mBN3+gn8Jgd3hz3pTFXc2dh/wZ3lxz3Hq1rTpNzJ5oc8oV9q/plT31ppTek+4qIsJPaI/QaUXQl5I6gMMGdHg3dzwDcNFYUaEfjfYdUm0koGiy7RATTuurP25heBin2AWU9kxmHr9gt83xdza2WwAKZ3d/ntkZcbPDvWIlpsC7Sw0b/0cnsdbOITS9Vpe+SjXtd+ZIl2/xEEnidOkjN2J+kepguhk3HXPtzKqZjDKilU9kY1OkoFRtmp7svN7sMLOlvWxVNx9yXYkREumSxtV0jtQhTuf5aSQTbm7GH7AxTUFGmRtxvAJrHQejlnTpadjLn20ZliP4873Jihqj98ZgmhXqCwtUt+eUcYTnNrfLhySkJtzSk+mM6q8gCju9tD5Q2vN8Z8ctPeTzE0T2hpQKSXxzz/YMQJqMTLCrFXMv1VnV5RvWanSVkli5J1QR7PI9ZMWIgDDyX4CwD6eP+FYc8r14IbFt41iVCi40XtNHhJdyzJFOC5XnVxIw8NRbRw9396dndwyLIdH1JVTrXe14Q+U5k5n2yQyEN82pjnqeO+9kvLC/mhm788HdyOe54XK0N5AtsyzKQoXzNOKEhMDzOITdGbY2OqkyWF++i4tJyv4AtyfB7cPi9S/toxWjdP6pWcHQosqNDqcZWvnl7NR+4W7VlM41FuPwR3tOrJoHEbsyxrBNgDT96ZNdoUW6dEA+NzrXkGsyD8CD3X5HjZgPw=
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/component: backstage
+        app.kubernetes.io/instance: b4mad-racing-developer-hub
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: backstage
+        helm.sh/chart: backstage-2.15.0
+      name: b4mad-racing-developer-hub-backstage-auth
+      namespace: b4mad-racing-developer-hub-rhdh
+    type: Opaque

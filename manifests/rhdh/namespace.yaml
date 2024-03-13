@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   annotations:
     openshift.io/display-name: "#B4mad Racing Developer Hub"
-  name: b4mad-racing-developer-hub
+  name: b4mad-racing-developer-hub-rhdh

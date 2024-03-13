@@ -4,7 +4,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: b4mad-racing-developer-hub-postgresql
-  namespace: "b4mad-racing-developer-hub"
+  namespace: "b4mad-racing-developer-hub-rhdh"
   labels:
     app.kubernetes.io/instance: b4mad-racing-developer-hub
     app.kubernetes.io/managed-by: Helm

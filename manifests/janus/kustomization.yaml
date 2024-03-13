@@ -3,7 +3,11 @@ kind: Kustomization
 namespace: b4mad-racing-developer-hub
 resources:
 - namespace.yaml
-- ../common
+- app-config-rhdh.yaml
+- rhdh-secrets.sealed.yaml
+- ingress.yaml
+- postgresql.sealed.yaml
+- backstage-auth.sealed.yaml
 - helm/backstage/charts/upstream/charts/postgresql/templates/primary/statefulset.yaml
 - helm/backstage/charts/upstream/charts/postgresql/templates/primary/svc-headless.yaml
 - helm/backstage/charts/upstream/charts/postgresql/templates/primary/svc.yaml

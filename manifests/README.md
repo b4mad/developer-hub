@@ -25,13 +25,12 @@ git restore janus/helm/backstage/templates/tests/test-connection.yaml
 
 ```
 helm repo add openshift-helm-charts https://charts.openshift.io/
-helm show values openshift-helm-charts/redhat-developer-hub > values-rhdh.yaml
+helm show values openshift-helm-charts/redhat-developer-hub > rhdh/values.yaml
 
 helm template b4mad-racing-developer-hub openshift-helm-charts/redhat-developer-hub \
-  --values values-downstream.yaml \
-  --namespace b4mad-racing-developer-hub \
-  --output-dir helm/rhdh
-
+  --values rhdh/values.yaml \
+  --namespace b4mad-racing-developer-hub-rhdh \
+  --output-dir rhdh/helm
 ```
 
 ## secrets

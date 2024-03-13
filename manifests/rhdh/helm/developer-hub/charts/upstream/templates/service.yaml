@@ -4,7 +4,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: b4mad-racing-developer-hub
-  namespace: "b4mad-racing-developer-hub" 
+  namespace: "b4mad-racing-developer-hub-rhdh" 
   labels:
     app.kubernetes.io/name: developer-hub
     helm.sh/chart: upstream-1.8.0

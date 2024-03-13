@@ -1,0 +1,4 @@
+rhdh-secrets.yaml
+postgresql.yaml
+backstage-auth.yaml
+rhdh-pull-secret.yaml
