@@ -1,0 +1,21 @@
+---
+# Source: developer-hub/charts/upstream/templates/app-config-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: b4mad-racing-developer-hub-app-config
+data:
+  app-config.yaml: |
+    app:
+      baseUrl: https://developer.b4mad.racing
+    backend:
+      auth:
+        keys:
+        - secret: ${BACKEND_SECRET}
+      baseUrl: https://developer.b4mad.racing
+      cors:
+        origin: https://developer.b4mad.racing
+      database:
+        connection:
+          password: ${POSTGRESQL_ADMIN_PASSWORD}
+          user: postgres

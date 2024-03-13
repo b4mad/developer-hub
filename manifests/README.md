@@ -1,6 +1,6 @@
-## helm chart -> kustomize
+### janus
 
-The Red Hat Developer Hub Helm Chart is available at https://github.com/redhat-developer/rhdh-chart
+The Janus showcase is available at https://github.com/redhat-developer/rhdh-chart
 
 ```
 helm repo add bitnami https://charts.bitnami.com/bitnami
@@ -10,15 +10,28 @@ helm repo add redhat-developer https://redhat-developer.github.io/rhdh-chart
 helm template b4mad-racing-developer-hub redhat-developer/backstage \
   --values values.yaml \
   --namespace b4mad-racing-developer-hub \
-  --output-dir rhdh
+  --output-dir helm/janus
 ```
 
 Then restore unwanted changes
 
 ```shell
-git restore rhdh/backstage/charts/upstream/charts/postgresql/templates/secrets.yaml
-git restore rhdh/backstage/templates/secrets.yaml
-git restore rhdh/backstage/templates/tests/test-connection.yaml
+git restore helm/janus/backstage/charts/upstream/charts/postgresql/templates/secrets.yaml
+git restore helm/janus/backstage/templates/secrets.yaml
+git restore helm/janus/backstage/templates/tests/test-connection.yaml
+```
+
+### rhdh
+
+```
+helm repo add openshift-helm-charts https://charts.openshift.io/
+helm show values openshift-helm-charts/redhat-developer-hub > values-rhdh.yaml
+
+helm template b4mad-racing-developer-hub openshift-helm-charts/redhat-developer-hub \
+  --values values-downstream.yaml \
+  --namespace b4mad-racing-developer-hub \
+  --output-dir helm/rhdh
+
 ```
 
 ## secrets

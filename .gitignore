@@ -10,7 +10,3 @@
 
 # Built Visual Studio Code Extensions
 *.vsix
-
-manifests/rhdh-secrets.yaml
-manifests/postgresql.yaml
-manifests/backstage-auth.yaml
