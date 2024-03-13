@@ -8,17 +8,17 @@ helm repo add backstage https://backstage.github.io/charts
 helm repo add redhat-developer https://redhat-developer.github.io/rhdh-chart
 
 helm template b4mad-racing-developer-hub redhat-developer/backstage \
-  --values values-janus.yaml \
+  --values janus/values.yaml \
   --namespace b4mad-racing-developer-hub \
-  --output-dir helm/janus
+  --output-dir janus/helm
 ```
 
 Then restore unwanted changes
 
 ```shell
-git restore helm/janus/backstage/charts/upstream/charts/postgresql/templates/secrets.yaml
-git restore helm/janus/backstage/templates/secrets.yaml
-git restore helm/janus/backstage/templates/tests/test-connection.yaml
+git restore janus/helm/backstage/charts/upstream/charts/postgresql/templates/secrets.yaml
+git restore janus/helm/backstage/templates/secrets.yaml
+git restore janus/helm/backstage/templates/tests/test-connection.yaml
 ```
 
 ### rhdh
