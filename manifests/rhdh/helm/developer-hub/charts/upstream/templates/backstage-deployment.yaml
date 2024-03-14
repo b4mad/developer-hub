@@ -29,7 +29,7 @@ spec:
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/component: backstage
       annotations:
-        checksum/app-config: 7115ed848435172ac25f3fccfce99fffc0163d20fbc3eec5968cced8d220ab42
+        checksum/app-config: 10b4301cf03508cb70ab18f75d85b461c9c23675b4e8f8bc421420716e7b5e75
         checksum/dynamic-plugins: '9ee997fba6c2be340aa99de1665de3e2d3072907fef964b36c86d1c9913d0970'
     spec:
       serviceAccountName: default
@@ -69,7 +69,7 @@ spec:
           env:
           - name: NPM_CONFIG_USERCONFIG
             value: /opt/app-root/src/.npmrc.dynamic-plugins
-          image: 'quay.io/rhdh/rhdh-hub-rhel9:1.0-200'
+          image: 'registry.redhat.io/rhdh/rhdh-hub-rhel9:1.0-200'
           imagePullPolicy: Always
           name: install-dynamic-plugins
           volumeMounts:
@@ -86,7 +86,7 @@ spec:
           workingDir: /opt/app-root/src
       containers:
         - name: backstage-backend
-          image: quay.io/rhdh/rhdh-hub-rhel9:1.0-200
+          image: registry.redhat.io/rhdh/rhdh-hub-rhel9:1.0-200
           imagePullPolicy: "Always"
           args:
             - "--config"

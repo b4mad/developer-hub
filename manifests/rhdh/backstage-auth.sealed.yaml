@@ -3,11 +3,11 @@ apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
   creationTimestamp: null
-  name: b4mad-racing-developer-hub-backstage-auth
+  name: b4mad-racing-developer-hub-auth
   namespace: b4mad-racing-developer-hub-rhdh
 spec:
   encryptedData:
-    backend-secret: AgBinh3np8v8mBN3+gn8Jgd3hz3pTFXc2dh/wZ3lxz3Hq1rTpNzJ5oc8oV9q/plT31ppTek+4qIsJPaI/QaUXQl5I6gMMGdHg3dzwDcNFYUaEfjfYdUm0koGiy7RATTuurP25heBin2AWU9kxmHr9gt83xdza2WwAKZ3d/ntkZcbPDvWIlpsC7Sw0b/0cnsdbOITS9Vpe+SjXtd+ZIl2/xEEnidOkjN2J+kepguhk3HXPtzKqZjDKilU9kY1OkoFRtmp7svN7sMLOlvWxVNx9yXYkREumSxtV0jtQhTuf5aSQTbm7GH7AxTUFGmRtxvAJrHQejlnTpadjLn20ZliP4873Jihqj98ZgmhXqCwtUt+eUcYTnNrfLhySkJtzSk+mM6q8gCju9tD5Q2vN8Z8ctPeTzE0T2hpQKSXxzz/YMQJqMTLCrFXMv1VnV5RvWanSVkli5J1QR7PI9ZMWIgDDyX4CwD6eP+FYc8r14IbFt41iVCi40XtNHhJdyzJFOC5XnVxIw8NRbRw9396dndwyLIdH1JVTrXe14Q+U5k5n2yQyEN82pjnqeO+9kvLC/mhm788HdyOe54XK0N5AtsyzKQoXzNOKEhMDzOITdGbY2OqkyWF++i4tJyv4AtyfB7cPi9S/toxWjdP6pWcHQosqNDqcZWvnl7NR+4W7VlM41FuPwR3tOrJoHEbsyxrBNgDT96ZNdoUW6dEA+NzrXkGsyD8CD3X5HjZgPw=
+    backend-secret: AgBaYbV0KN0VsBPa9oKf8SMJ+EkMoisKsLBCe7bacJNyH7r8A+GBtf7XIbixqYlHy9uUSpwDB47QD0eLEnVQijZ4GPY/96+OlQGA947FJkCVlDuVMcnmkSYG6oZ+fWvjwTqh5v/ksk/o0sUtmn36QOv0juwE5bEn7Vdjc28ZlqIusoCKQpneh4JiiBSeLQZV0F7WeJVXWUq3KH7Ik5Wiv6+91RSUZXgTeeJzJ8w4xPzwoJoQtFw+Y8CKEPZc7krumytB0NRYpt10v9XxU7AALhrY2x2gqgLm4BQ9pGSX1cBhlKl7X3L+Uddax5RKNWNEeVgtbSRMtlPp5Y4zctvvwXNqMlrTTfd6vdlsDTjxQVvOUyXOtt+wQVfb5VvX+O86m8MRN/rvzECs9Wz8lQdpaqPjAw2a4gw4SBeOruySeRl6OTNseupLc8P35vwmvv/dyoczzj531Kk0BSVGVC3FbQil3J+7F/bODlbwmrNiY7Vr06uPCZnaNOH56/57eDsoFWuqZyTBIjnOMcwI2INXCExj/dRd716CuG9ifxi7yMQGz1ioNk/pSv0q9UBLPVeMtEMzS0fl793Kw7EubanGXg+ya/c1t7+O7bg14hnWqtUZrg6MoXej86WKJLkHMhLNQDeQyxMc4XFMSdOd4AuanJHE4avhHYmUPvsH8NLL9GgZ4XHRq8xv4hKBU5eyWcV524Yf3tAwF1ysL/xtS3UgUJH6UH0U9AmCass=
   template:
     metadata:
       creationTimestamp: null
@@ -17,6 +17,6 @@ spec:
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: backstage
         helm.sh/chart: backstage-2.15.0
-      name: b4mad-racing-developer-hub-backstage-auth
+      name: b4mad-racing-developer-hub-auth
       namespace: b4mad-racing-developer-hub-rhdh
     type: Opaque

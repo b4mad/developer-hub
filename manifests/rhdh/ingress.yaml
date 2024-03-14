@@ -15,7 +15,7 @@ spec:
             path: /
             backend:
               service:
-                name: b4mad-racing-developer-hub-backstage
+                name: b4mad-racing-developer-hub
                 port:
                   name: http-backend
   tls:

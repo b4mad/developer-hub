@@ -7,14 +7,14 @@ metadata:
 data:
   app-config.yaml: |
     app:
-      baseUrl: https://developer.b4mad.racing
+      baseUrl: https://rhdh.b4mad.racing
     backend:
       auth:
         keys:
         - secret: ${BACKEND_SECRET}
-      baseUrl: https://developer.b4mad.racing
+      baseUrl: https://rhdh.b4mad.racing
       cors:
-        origin: https://developer.b4mad.racing
+        origin: https://rhdh.b4mad.racing
       database:
         connection:
           password: ${POSTGRESQL_ADMIN_PASSWORD}

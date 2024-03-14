@@ -6,7 +6,6 @@ global:
       # -- List of dynamic plugins included inside the `janus-idp/backstage-showcase` container image, some of which are disabled by default.
       # This file ONLY works with the `janus-idp/backstage-showcase` container image.
       - 'dynamic-plugins.default.yaml'
-
     # -- List of dynamic plugins, possibly overriding the plugins listed in `includes` files.
     # Every item defines the plugin `package` as a [NPM package spec](https://docs.npmjs.com/cli/v10/using-npm/package-spec),
     # an optional `pluginConfig` with plugin-specific backstage configuration, and an optional `disabled` flag to disable/enable a plugin
@@ -23,7 +22,7 @@ global:
   clusterRouterBase: ""
   # -- Custom hostname shorthand, overrides `global.clusterRouterBase`, `upstream.ingress.host`, `route.host`, and url values in `upstream.backstage.appConfig`.
   # If neither `global.clusterRouterBase` nor `global.host` are set, the helm chart will attempt to autofill with the hostname of the [OCP Ingress configuration](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html/networking/configuring-ingress#nw-installation-ingress-config-asset_configuring-ingress)
-  host: "developer.b4mad.racing"
+  host: "rhdh.b4mad.racing"
   # -- Enable service authentication within Backstage instance
   auth:
     # -- Backend service to service authentication
@@ -41,11 +40,11 @@ upstream:
   nameOverride: developer-hub
   backstage:
     image:
-      registry: quay.io
+      registry: registry.redhat.io
       repository: rhdh/rhdh-hub-rhel9
       tag: 1.0-200
       # Tag is set via prepare.sh script
-      # tag: "${RHDH_RELEASE}-${TARGET_RHDH_TAG}"
+      # tag: "${RHDH_VERSION}"
       pullSecrets:
         - rhdh-pull-secret
     command: []
