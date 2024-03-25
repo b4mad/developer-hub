@@ -7,7 +7,7 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo add backstage https://backstage.github.io/charts
 helm repo add redhat-developer https://redhat-developer.github.io/rhdh-chart
 
-helm template b4mad-racing-developer-hub redhat-developer/backstage \
+helm template backstage redhat-developer/backstage \
   --values janus/values.yaml \
   --namespace b4mad-racing-developer-hub \
   --output-dir janus/helm
@@ -27,7 +27,7 @@ git restore janus/helm/backstage/templates/tests/test-connection.yaml
 helm repo add openshift-helm-charts https://charts.openshift.io/
 helm show values openshift-helm-charts/redhat-developer-hub --version 1.0.0-1 > rhdh/values.yaml
 
-helm template b4mad-racing-developer-hub openshift-helm-charts/redhat-developer-hub \
+helm template backstage openshift-helm-charts/redhat-developer-hub \
   --values rhdh/values.yaml \
   --namespace b4mad-racing-developer-hub-rhdh \
   --output-dir rhdh/helm

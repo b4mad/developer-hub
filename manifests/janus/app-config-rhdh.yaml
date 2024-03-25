@@ -60,9 +60,9 @@ data:
             - Domain
             - Api
             - Resource
-      locations:
-        - type: url
-          target: https://github.com/b4mad/racing-manifests/blob/main/catalog/all.yaml
+      # locations:
+      #   - type: url
+      #     target: https://github.com/b4mad/racing-manifests/blob/main/catalog/all.yaml
       providers:
         githubOrg:
           id: production

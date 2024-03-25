@@ -37,7 +37,7 @@ global:
 # -- Upstream Backstage [chart configuration](https://github.com/backstage/charts/blob/main/charts/backstage/values.yaml)
 # @default -- Use Openshift compatible settings
 upstream:
-  nameOverride: developer-hub
+  nameOverride: backstage
   backstage:
     image:
       registry: registry.redhat.io

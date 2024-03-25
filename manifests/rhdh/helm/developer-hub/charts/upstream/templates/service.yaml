@@ -3,10 +3,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: b4mad-racing-developer-hub
+  name: b4mad-racing-developer-hub-backstage
   namespace: "b4mad-racing-developer-hub-rhdh" 
   labels:
-    app.kubernetes.io/name: developer-hub
+    app.kubernetes.io/name: backstage
     helm.sh/chart: upstream-1.8.0
     app.kubernetes.io/instance: b4mad-racing-developer-hub
     app.kubernetes.io/managed-by: Helm
@@ -21,6 +21,6 @@ spec:
       protocol: TCP
       nodePort: null  
   selector:
-    app.kubernetes.io/name: developer-hub
+    app.kubernetes.io/name: backstage
     app.kubernetes.io/instance: b4mad-racing-developer-hub
     app.kubernetes.io/component: backstage

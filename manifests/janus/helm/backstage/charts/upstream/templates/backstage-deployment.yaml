@@ -3,12 +3,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: b4mad-racing-developer-hub-backstage
+  name: backstage
   namespace: "b4mad-racing-developer-hub"
   labels: 
     app.kubernetes.io/name: backstage
     helm.sh/chart: upstream-1.9.1
-    app.kubernetes.io/instance: b4mad-racing-developer-hub
+    app.kubernetes.io/instance: backstage
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: backstage
   annotations:
@@ -18,14 +18,14 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: backstage
-      app.kubernetes.io/instance: b4mad-racing-developer-hub
+      app.kubernetes.io/instance: backstage
       app.kubernetes.io/component: backstage
   template:
     metadata:
       labels:
         app.kubernetes.io/name: backstage
         helm.sh/chart: upstream-1.9.1
-        app.kubernetes.io/instance: b4mad-racing-developer-hub
+        app.kubernetes.io/instance: backstage
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/component: backstage
       annotations:
@@ -58,7 +58,7 @@ spec:
             secretName: dynamic-plugins-npmrc
         - name: backstage-app-config
           configMap:
-            name: b4mad-racing-developer-hub-backstage-app-config
+            name: backstage-app-config
       
       initContainers:
         - command:
@@ -120,7 +120,7 @@ spec:
             - name: APP_CONFIG_backend_listen_port
               value: "7007"
             - name: POSTGRES_HOST
-              value: b4mad-racing-developer-hub-postgresql
+              value: backstage-postgresql
             - name: POSTGRES_PORT
               value: "5432"
             - name: POSTGRES_USER
@@ -128,18 +128,18 @@ spec:
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: b4mad-racing-developer-hub-postgresql
+                  name: backstage-postgresql
                   key: password
             - name: BACKEND_SECRET
               valueFrom:
                 secretKeyRef:
                   key: backend-secret
-                  name: 'b4mad-racing-developer-hub-backstage-auth'
+                  name: 'backstage-auth'
             - name: POSTGRESQL_ADMIN_PASSWORD
               valueFrom:
                 secretKeyRef:
                   key: postgres-password
-                  name: 'b4mad-racing-developer-hub-postgresql'
+                  name: 'backstage-postgresql'
           ports:
             - name: backend
               containerPort: 7007

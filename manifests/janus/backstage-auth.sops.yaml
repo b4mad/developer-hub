@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: b4mad-racing-developer-hub-backstage-auth
+    name: backstage-auth
     namespace: b4mad-racing-developer-hub
     labels:
         app.kubernetes.io/name: backstage
@@ -20,8 +20,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2024-03-06T15:36:59Z"
-    mac: ENC[AES256_GCM,data:Kq46mHhWK7PGayaiyhTkHwroAJ5e6I6h0CxSDvrXl5JYdBqFqf9GFY507FQ5QF3+75HW8FxMOOwd1IJHOOo2I0rvtwf/rFlzQ3dfm6ZSZFxh9vGh56IDjoYADJ9/bCzPlxgrj4se/SM6l8SMprRUtOyARfmCWQW2WoPaUJypjbE=,iv:ZAE1+xSZWbOioJwcXsdMkKzDB1Kgz7Yd6JmnpqE2EgE=,tag:pexytjM15tpzfcBZwFNoXQ==,type:str]
+    lastmodified: "2024-03-14T15:29:05Z"
+    mac: ENC[AES256_GCM,data:c9TusbvooPRzjoLdjcAQXouMzVb1V0Gy2p8H1AZc9NAk0LLgCihdUSJvEF9sHhP3DP7WkhJKjvGsLj78jhxio1zrjF6aXUf1eaOi7BNtC6VX1xflv5ZaAdVWZ0lPFGS+M/xvRK8/f0YDx0jn5QTIVRQmuIPNzH76OJboMpDB0gA=,iv:idGu1x3DqqkpxWoY5RVRMrm0aWy443vpzpvx4Lg9+4o=,tag:Rfjlmmjw0c0Nx3rOylxA6w==,type:str]
     pgp:
         - created_at: "2024-03-06T15:36:59Z"
           enc: |-
