@@ -3,10 +3,10 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: b4mad-racing-developer-hub-postgresql
+  name: backstage-postgresql
   namespace: "b4mad-racing-developer-hub-rhdh"
   labels:
-    app.kubernetes.io/instance: b4mad-racing-developer-hub
+    app.kubernetes.io/instance: backstage
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: postgresql
     app.kubernetes.io/version: 15.4.0
@@ -14,20 +14,20 @@ metadata:
     app.kubernetes.io/component: primary
 spec:
   replicas: 1
-  serviceName: b4mad-racing-developer-hub-postgresql-hl
+  serviceName: backstage-postgresql-hl
   updateStrategy:
     rollingUpdate: {}
     type: RollingUpdate
   selector:
     matchLabels:
-      app.kubernetes.io/instance: b4mad-racing-developer-hub
+      app.kubernetes.io/instance: backstage
       app.kubernetes.io/name: postgresql
       app.kubernetes.io/component: primary
   template:
     metadata:
-      name: b4mad-racing-developer-hub-postgresql
+      name: backstage-postgresql
       labels:
-        app.kubernetes.io/instance: b4mad-racing-developer-hub
+        app.kubernetes.io/instance: backstage
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: postgresql
         app.kubernetes.io/version: 15.4.0
@@ -44,7 +44,7 @@ spec:
             - podAffinityTerm:
                 labelSelector:
                   matchLabels:
-                    app.kubernetes.io/instance: b4mad-racing-developer-hub
+                    app.kubernetes.io/instance: backstage
                     app.kubernetes.io/name: postgresql
                     app.kubernetes.io/component: primary
                 topologyKey: kubernetes.io/hostname
@@ -72,12 +72,12 @@ spec:
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: b4mad-racing-developer-hub-postgresql
+                  name: backstage-postgresql
                   key: password
             - name: POSTGRES_POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: b4mad-racing-developer-hub-postgresql
+                  name: backstage-postgresql
                   key: postgres-password
             # Replication
             # Initdb
@@ -106,7 +106,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   key: postgres-password
-                  name: 'b4mad-racing-developer-hub-postgresql'
+                  name: 'backstage-postgresql'
           ports:
             - name: tcp-postgresql
               containerPort: 5432

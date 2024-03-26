@@ -25,7 +25,7 @@ git restore janus/helm/backstage/templates/tests/test-connection.yaml
 
 ```
 helm repo add openshift-helm-charts https://charts.openshift.io/
-helm show values openshift-helm-charts/redhat-developer-hub --version 1.0.0-1 > rhdh/values.yaml
+helm show values openshift-helm-charts/redhat-developer-hub --version 1.1.0 > rhdh/values.yaml
 
 helm template backstage openshift-helm-charts/redhat-developer-hub \
   --values rhdh/values.yaml \
@@ -43,10 +43,11 @@ We are using [sealed secrets](https://sealed-secrets.netlify.app/),
 a sops-encrypted version is kept to generate the sealed secrets and keep them human-readable.
 
 ```shell
-sops --decrypt rhdh-secrets.enc.yaml \
-| kubeseal --controller-namespace=sealed-secrets \
-    --format yaml \
-> rhdh-secrets.sealed.yaml
+sops -e postgresql.yaml > postgresql.sops.yaml
+sops --decrypt postgresql.sops.yaml | kubeseal --controller-namespace=sealed-secrets --format yaml > postgresql.sealed.yaml
+
+sops -e backstage-auth.yaml > backstage-auth.sops.yaml
+sops --decrypt backstage-auth.sops.yaml | kubeseal --controller-namespace=sealed-secrets --format yaml > backstage-auth.sealed.yaml
 ```
 
 Make sure, that the input to `kubeseal` is using the correct namespace!

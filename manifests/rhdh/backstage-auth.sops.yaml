@@ -1,0 +1,47 @@
+# Source: backstage/templates/secrets.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+    name: backstage-auth
+    namespace: b4mad-racing-developer-hub-rhdh
+    labels:
+        app.kubernetes.io/name: backstage
+        helm.sh/chart: backstage-2.15.0
+        app.kubernetes.io/instance: b4mad-racing-developer-hub
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/component: backstage
+type: Opaque
+data:
+    backend-secret: ENC[AES256_GCM,data:N6VB9ipSGpYyRMNpo0GT01GJPjXm14nxxK+HUuchRME=,iv:CjnBQ9o5QOR3NaT+iIEigASxRdFkuZQP+7PeEiDtTIA=,tag:WEsi0ZZHKQyLECml5J4/WQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2024-03-25T15:11:37Z"
+    mac: ENC[AES256_GCM,data:rgUFYFQDWynKNoBIPX7VTLI+5TAs+2Zr40fHufJoqHpG1owHEUhURn3FtH17+GgqTxI7x9rAgFWhRxy3S8Dk0sQ7sSIbTAZWpWrLAcvEup6Q8ZkKUhv5Sa4rAoUR8M1CA8amHPs6Q5x5s2VMELEkfZY4FLFJix8PV308ziW30fo=,iv:0kYQUmxLA+K1egT4B3G//3YbFDwkbybdkFImexo5qh0=,tag:R8gBdUAxNxT/vE+7Uo4/Bg==,type:str]
+    pgp:
+        - created_at: "2024-03-25T15:11:37Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA9AgVmznaOk7ARAAnrP+DyGoWxImKTh90tBBu9VnBIDQI2mqkrLIl2VDpb2x
+            bRWO0GLhLhMkJ0z2U4FpJvbX/fRwX9nYurgEQ5lnxS9ZeCxP0y5A906imsKzxiel
+            RvQzk2S19vo8Mm9RlWlq1Og9Z0kWtw73Hy+wwjrVlmHB7Lw7bHmJwfIe2xJyoF9U
+            j2OWysNpWQ0OMetQ0EhT4Fcz0fhNqpzyhZuoxQaB3YAn0WdCnrSXefy9B4xAkibN
+            r3XhuutWHFaUNoxSmwA8rZ3V+oev9ib64giBQ5vsrjC6bZeqmVXdQHTVitPS3GqF
+            aYtKjLpx+4xZodxLCI74cRhxRKb89Zk+W1oDdt8jj56oCUWoNTXpTGesh5hUrdQU
+            My2w5i0nG1hOfvDh+naP0H4uXSk4FtxAYtAv2WdrLukEi/JcC27qwQiIgra0EJqk
+            BwgdQKldpAg6K9KY89F3WbUWZY59fcrKXh+3r1iNuwa3jMo9ifABpb7HT+slwfH4
+            eqxrQFDHe7r1P504OR1li+CMPqB4Y34Q8iY51tO8679bsQ92zx5kH4P3AGlpmXC9
+            5oxDN+d7QlU/ExSz7uko9pNBu78tPJFAlkaVIeqNvKXcWPmaM0KSK4BC3JwBXJuq
+            PpW5PXr1xLMjyi6EsGWs+YXkcFRTEWyaGyIqf17En2sOHJTRGovog126ECtRIuTU
+            ZgEJAhBTsK41eQ8mBUCme+F0XP6tejbdNx1dtT/LkTiVO+79gBYlUY2/+slurk2M
+            y5d7/NJ4Ck9h4y+//g0vTPzOPMNhPcWnhJp3aDVJbiUIGEDp/ImieQtGN3cvtOVs
+            ZFcab6JDwA==
+            =8r9V
+            -----END PGP MESSAGE-----
+          fp: 04DAFCD9470A962A2F272984E5EB0DA32F3372AC
+    encrypted_regex: ^(data|stringData|tls)$
+    version: 3.8.1

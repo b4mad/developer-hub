@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: backstage-postgresql
+    namespace: b4mad-racing-developer-hub-rhdh
+type: Opaque
+stringData:
+    password: ENC[AES256_GCM,data:PN9SwKhKZpGJCQ==,iv:G0dfJwxlVmyshFq47J1n1DeeK1V5qgo8crEY3HlUjXE=,tag:QhuD6jmSB2J1JOQS1ZYIeQ==,type:str]
+    postgres-password: ENC[AES256_GCM,data:Xc8CBLfsaZGkvw==,iv:3B7Mzth0JO13lH+wTCKSRlBExOYZndylLtSvIurPvic=,tag:M80Lgbo5CUb6sWNGsB9PEg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2024-03-25T15:05:54Z"
+    mac: ENC[AES256_GCM,data:WKITO1pnIrJ9hfGcZuDkOAlH9X7YeSvIhd4uY1/UsPZdwReg/JytD4Zz43j0MXjXpfitoj0Xzm1TC5KEcypu/A/P7jOnkXQDogzZF1ysNErS1/QfecjiItX7jXH38fwEctI42Q81KxtIHYWsNVC92GKww4Zi7J9T7NrspR11u/0=,iv:nSLzAySp4qkdwaLoq3p4Qg/m2qspju8o53C4ZZeWuD4=,tag:huaCnzal+M+n4h5AEpHGWg==,type:str]
+    pgp:
+        - created_at: "2024-03-25T15:05:54Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA9AgVmznaOk7AQ//Yl8hHNnyv96PvHXoH/s4SFVUhP3NLstHaJe8DmE0mxqC
+            pN/dIiKsRG3Hqk1QrfoE2sQJ/LWFsZg2FI4ZBMdMfEzLTZxotM2OsE+hdO49dBdX
+            9wuqTYKzhiGXSM3NMMl6CP1w/hwe9rCtPclzrbzku9Q8FHdB/hbgYYUkIorq5AZr
+            T9ibbgW59b7Emr1kSYStXd94AzdpMT1SM1jfLBD418dF8A2UHCTH+/1YVBAovlts
+            47aVAsKyZqRQx7m56qyIPZ1OmXG6NLD5oyk+7LgQZsqsinAL6bnvVWbpffz2GSs8
+            ujYzRO9b1yZLIm491WLCskzSr6brKeQ/cmrZypN5kUmUp7SWiM5U/7o5+4qSs9xP
+            OI03q62SwM5owGMIHklZ7etG55PbleEEQkh7axuh98yZiE/Su2xkzi68saoaomo8
+            7ZAvjFCZu19HBGsaWDimGHy+Ev6fkX3c663aeNN8Dlq0kcMaCVBbeTn9CfLUTgsy
+            x9Uq6SKcOiLyu9gbgCN/g1wah2P71JDDpFv/lFdnAkwA17Q6FTJyggDMIiejH+k1
+            q6mz78H//cFcZkwPdVXRNjuvS2KnMARZLwsMP1F3bJWoACmvDwFK9xTihvr7y7R0
+            W0tNSLvMOkV3tmRRcPLAERXjLswWMSR17v4ois7P6HBNY3J+xIUpK4yhIGAIJuzU
+            ZgEJAhAYbwze5kpxdgnTO6uNBbcfHBsnKf2Ppvc6nGlUnxNJUkVms/3+FjLL8Vn1
+            dRXLsVGwJhZeqO1FgXVvh/AZGkSbdYTqfwuuqW/M5VEN//uGnCmrPniQXX9JweZG
+            7w1ptw+jnw==
+            =A20v
+            -----END PGP MESSAGE-----
+          fp: 04DAFCD9470A962A2F272984E5EB0DA32F3372AC
+    encrypted_regex: ^(data|stringData|tls)$
+    version: 3.8.1

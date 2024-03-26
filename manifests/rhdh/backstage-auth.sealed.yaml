@@ -3,11 +3,11 @@ apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
   creationTimestamp: null
-  name: b4mad-racing-developer-hub-backstage-auth
+  name: backstage-auth
   namespace: b4mad-racing-developer-hub-rhdh
 spec:
   encryptedData:
-    backend-secret: AgANMnqtORv2IOEAnEpUF1DFLeKFrP2IKvEygqWyj4A6uw0cC8yR1xnGRQIEMbmDWNXo3H7cXYHoXCv+WVlLa4Xd2LUg3c+koPbASk5uXN0QsJVa2l7tvw8/qowr97gny5zePBCwlO+QtVXRHdMBiouulfj2lvYqQpfhDT2EtM1ucasii47yHtH8zmSDFbAjXINp1uYl7RzNt4TER8JMqI2ZKhINQb7WYW1VmJXch0OA2il0nI0YRroGKJnTu21tanO8VffnKdMeY6dDitf5Lnb6gu3tWP7XfSUZLmqvk15Tabd3D+LModhDsaQxgnqm05I8x2H1BwwhyqY5r3gj6uo/Ypg9YA/ijCRdrh+YohT5H2+DR2GsBM5Sj2T1iJwn7Xo4xLmZ1jcRlK/5I/x/3P93iLhFNUm9znc7xYfC4qZsIRvzWUV+jdIZyl05JPVBIzDN2dD1/WsFWQ1Gtf2pJa3VZiPe80NE5X+eDAfxmBIkhrS05pb9VWYNtCo6+jA1Otonug2CxE09c/mo/KEDAZaYVE/uZ5XQ3zeLdcyUNfpLY2WkMC6pypsl4AN1IN4n1x+f0M1LOi3g4zdv6psYksSiwrHmxc3Jr/sJmQEaiSKQwfxglKKc+rCLKN1yrZWxGXgB+nwBhLwJr6l3drTPoDDbxpcbJcQjEbWEpXmvQvmU1zRdkpnJmutuTwcPnwAfz1o/1Ax5EwdA9fKNf3Jjhpo5BkosrqrLcVc=
+    backend-secret: AgBNxnRDJ1N0IvMMsuwNw8EQ7SE16ywGJLWkXXTbZJWfo1QDJynTEDXgjpuHH0vycxoOKyBMNXwbL2JboFA/9LhZnWAgZpO0i7gevOaavmII68BNrBZsktmuB/s9PBnI1qqJo5GxnIigfypeRNL1XnEQrkw+bBzZB5b6wU7eDmYkqD1HKCiV7z27bjNY/uwwcXclTXmhuiwdCXLBydVEp3nOZawBHfXhkD1JjPBXwaxEXjsaNvL+bGvWtBhCTwwz7R+2l0lCY89Jmir5YkFyCLsNy+skePqet++qfXWtogg/52ur+2g3c56OU7mrbSj8Tu9PImHOVjoeDZ1RCA1iTtV0UbLaL9/EjyS7bSyuDHIPF1cpwi/VglhaQ46gKj8+62pZYV0eO0LHelX0NDkaSO36dFXEP0SByAKqcaMlXiO6IyeKXH0KDzgyGSpxLhszJB32L6UfcScJY0ByULC2YxLOqk91BQdR6OUXXKOFay7ltOOyUUwqngoGtnU8VyE4NaSXB8sewPaNCT6mjqWtbHUXsOVzjuTIEOsWhGgFpDYd2S3VDTeJfUYT3bVrumKy/h7ZzXocga6Lr0n7fX0jS12c6cKg3w8xDdgvw976LkoGCMH02fnOxsK683nkvb7gtKHGblkhhMNueXfGi9x65BNqlOsrM5HkE+5AIrSpqnDesYhw+u/VDJRf1u8611Jzd2qZilC/picKxBZnlk/P01N5zK8+Shj0f60=
   template:
     metadata:
       creationTimestamp: null
@@ -17,6 +17,6 @@ spec:
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: backstage
         helm.sh/chart: backstage-2.15.0
-      name: b4mad-racing-developer-hub-backstage-auth
+      name: backstage-auth
       namespace: b4mad-racing-developer-hub-rhdh
     type: Opaque

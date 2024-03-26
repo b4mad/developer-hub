@@ -61,15 +61,15 @@ data:
             - Api
             - Resource
       locations:
-        - type: github-discovery
+        - type: github
           target: https://github.com/b4mad/racing-*/blob/-/catalog-info.yaml
       #   - type: url
       #     target: https://github.com/b4mad/racing-manifests/blob/main/catalog/all.yaml
       providers:
         githubOrg:
-          default:
-            id: production
-            orgUrl: 'https://github.com/b4mad'
+          id: production
+          githubUrl: "https://github.com"
+          orgs: [ 'b4mad' ]
         github:
           providerId:
             organization: 'b4mad'
