@@ -30,7 +30,7 @@ spec:
         app.kubernetes.io/component: backstage
       annotations:
         checksum/app-config: 10b4301cf03508cb70ab18f75d85b461c9c23675b4e8f8bc421420716e7b5e75
-        checksum/dynamic-plugins: '9ee997fba6c2be340aa99de1665de3e2d3072907fef964b36c86d1c9913d0970'
+        checksum/dynamic-plugins: '1bade16f2ad468f09bc105c194c9432390663816ee5c6232043217970295e13d'
     spec:
       serviceAccountName: default
       volumes:

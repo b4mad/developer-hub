@@ -48,6 +48,12 @@ data:
           production:
             clientId: ${GITHUB_APP_CLIENT_ID}
             clientSecret: ${GITHUB_APP_CLIENT_SECRET}
+    permission:
+      enabled: true
+      rbac:
+        admin:
+          users:
+            - name: user:default/durandom
     catalog:
       readonly: true
       rules:
@@ -68,8 +74,8 @@ data:
       providers:
         githubOrg:
           id: production
-          githubUrl: "https://github.com"
-          orgs: [ 'b4mad' ]
+          githubUrl: "${GITHUB_URL}"
+          orgs: [ "${GITHUB_ORG}" ]
         github:
           providerId:
             organization: 'b4mad'

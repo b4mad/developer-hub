@@ -17,6 +17,9 @@ global:
       - disabled: false
         package: >-
           ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-org-dynamic
+      - disabled: false
+        package: >-
+          ./dynamic-plugins/dist/janus-idp-backstage-plugin-rbac
 
   # -- Shorthand for users who do not want to specify a custom HOSTNAME. Used ONLY with the DEFAULT upstream.backstage.appConfig value and with OCP Route enabled.
   clusterRouterBase: ""

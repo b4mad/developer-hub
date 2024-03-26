@@ -27,14 +27,16 @@ git restore janus/helm/backstage/templates/tests/test-connection.yaml
 helm repo add openshift-helm-charts https://charts.openshift.io/
 helm show values openshift-helm-charts/redhat-developer-hub --version 1.1.0 > rhdh/values.yaml
 
-helm template backstage openshift-helm-charts/redhat-developer-hub \
-  --values rhdh/values.yaml \
-  --namespace b4mad-racing-developer-hub-rhdh \
-  --output-dir rhdh/helm
+cd rhdh
 
-git restore rhdh/helm/developer-hub/charts/upstream/charts/postgresql/templates/secrets.yaml
-git restore rhdh/helm/developer-hub/templates/secrets.yaml
-git restore rhdh/helm/developer-hub/templates/tests/test-connection.yaml
+helm template backstage openshift-helm-charts/redhat-developer-hub \
+  --values values.yaml \
+  --namespace b4mad-racing-developer-hub-rhdh \
+  --output-dir helm
+
+git restore helm/developer-hub/charts/upstream/charts/postgresql/templates/secrets.yaml
+git restore helm/developer-hub/templates/secrets.yaml
+git restore helm/developer-hub/templates/tests/test-connection.yaml
 ```
 
 ## secrets
@@ -48,6 +50,9 @@ sops --decrypt postgresql.sops.yaml | kubeseal --controller-namespace=sealed-sec
 
 sops -e backstage-auth.yaml > backstage-auth.sops.yaml
 sops --decrypt backstage-auth.sops.yaml | kubeseal --controller-namespace=sealed-secrets --format yaml > backstage-auth.sealed.yaml
+
+sops -e rhdh-secrets.yaml > rhdh-secrets.sops.yaml
+sops --decrypt rhdh-secrets.sops.yaml | kubeseal --controller-namespace=sealed-secrets --format yaml > rhdh-secrets.sealed.yaml
 ```
 
 Make sure, that the input to `kubeseal` is using the correct namespace!

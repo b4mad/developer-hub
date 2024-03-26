@@ -13,3 +13,5 @@ data:
       package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-dynamic
     - disabled: false
       package: ./dynamic-plugins/dist/backstage-plugin-catalog-backend-module-github-org-dynamic
+    - disabled: false
+      package: ./dynamic-plugins/dist/janus-idp-backstage-plugin-rbac
