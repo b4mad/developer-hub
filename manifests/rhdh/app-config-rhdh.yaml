@@ -55,7 +55,7 @@ data:
           users:
             - name: user:default/durandom
     catalog:
-      readonly: true
+      readonly: false
       rules:
         - allow:
             - Component
@@ -66,22 +66,23 @@ data:
             - Domain
             - Api
             - Resource
-      locations:
-        - type: github
-          target: https://github.com/b4mad/racing-*/blob/-/catalog-info.yaml
+            - Template
+      # locations:
       #   - type: url
       #     target: https://github.com/b4mad/racing-manifests/blob/main/catalog/all.yaml
       providers:
         githubOrg:
           id: production
           githubUrl: "${GITHUB_URL}"
-          orgs: [ "${GITHUB_ORG}" ]
+          orgs:
+          - ${GITHUB_ORG}
         github:
           providerId:
-            organization: 'b4mad'
-            filters:
-              branch: 'main'
-              repository: 'racing-.*'
+            organization: ${GITHUB_ORG}
+            # catalogPath: '/catalog-info.yaml'
+            # filters:
+            #   branch: 'main'
+            #   repository: 'racing-.*'
             schedule:
               frequency:
                 minutes: 30
