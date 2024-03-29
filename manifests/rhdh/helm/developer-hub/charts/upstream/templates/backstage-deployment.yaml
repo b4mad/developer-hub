@@ -127,6 +127,8 @@ spec:
               value: "5432"
             - name: POSTGRES_USER
               value: bn_backstage
+            # - name: LOG_LEVEL
+            #   value: debug
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:

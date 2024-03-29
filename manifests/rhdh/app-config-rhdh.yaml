@@ -79,10 +79,10 @@ data:
         github:
           providerId:
             organization: ${GITHUB_ORG}
-            # catalogPath: '/catalog-info.yaml'
-            # filters:
-            #   branch: 'main'
-            #   repository: 'racing-.*'
+            catalogPath: '/catalog-info.yaml'
+            filters:
+              branch: 'main'
+              repository: 'racing-.*'
             schedule:
               frequency:
                 minutes: 30
