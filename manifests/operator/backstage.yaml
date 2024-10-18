@@ -21,11 +21,12 @@ spec:
     appConfig:
       configMaps:
         - name: app-config-rhdh
-        - name: rbac-policy
     extraEnvs:
       secrets:
         - name: secret-rhdh
     extraFiles:
+      configMaps:
+        - name: rbac-policy
       secrets:
         - name: github-app-credentials
           key: github-app-credentials.yaml
