@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: b4mad-developer-hub
+labels:
+  - pairs:
+      backstage.io/kubernetes-id: rhdh-test
+configMapGenerator:
+- name: app-config-rhdh
+  files:
+  - app-config.local.yaml
+- name: dynamic-plugins
+  files:
+  - dynamic-plugins.yaml
+- name: rbac-policy
+  files:
+  - rbac-policy.csv
+secretGenerator:
+- name: secret-rhdh
+  envs:
+  - secret.env
+- name: github-app-credentials
+  files:
+  - github-app-credentials.yaml
+resources:
+- namespace.yaml
+- ingress.yaml
+- backstage.yaml
+- pvc-dynamic-plugins-root.yaml
+- cluster-role-backstage-read-only.yaml
+configurations:
+- kustomizeconfig/backstage.yaml

@@ -54,6 +54,20 @@ data:
         admin:
           users:
             - name: user:default/durandom
+    kubernetes:
+      serviceLocatorMethod:
+        type: "multiTenant"
+      clusterLocatorMethods:
+        - type: "config"
+          clusters:
+            - url: https://api.phobos.b4mad.emea.operate-first.cloud:6443
+              name: smaug
+              authProvider: "serviceAccount"
+              skipTLSVerify: false
+              skipMetricsLookup: false
+              serviceAccountToken: ${K8S_PHOBOS_TOKEN}
+              dashboardUrl: https://console-openshift-console.apps.phobos.b4mad.emea.operate-first.cloud
+              dashboardApp: openshift
     catalog:
       readonly: false
       rules:

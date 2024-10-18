@@ -1,0 +1,4 @@
+g, user:default/durandom, role:default/topology-viewer
+p, role:default/topology-viewer, topology.view.read, read, allow
+p, role:default/topology-viewer, kubernetes.proxy, use, allow
+p, role:default/topology-viewer, catalog-entity, read, allow

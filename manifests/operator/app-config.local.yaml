@@ -1,0 +1,89 @@
+auth:
+  environment: development
+  providers:
+    # guest:
+    #   dangerouslyAllowOutsideDevelopment: true
+    github:
+      development:
+        clientId: ${AUTH_GITHUB_CLIENT_ID}
+        clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
+
+integrations:
+  github:
+    - host: github.com
+      apps:
+        - $include: github-app-credentials.yaml
+
+app:
+  title: RHDH
+  baseUrl: https://rhdh.b4mad.racing
+
+backend:
+  baseUrl: https://rhdh.b4mad.racing
+  cors:
+    origin: https://rhdh.b4mad.racing
+catalog:
+  rules:
+    - allow: [Component, System, Group, Resource, Location, Template, API, User, Domain]
+  locations:
+    # - type: file
+    #   target: /opt/app-root/src/configs/catalog-entities/users.yaml
+    #   rules:
+    #     - allow: [User, Group]
+    # - type: file
+    #   target: /opt/app-root/src/configs/catalog-entities/components.yaml
+    #   rules:
+    #     - allow: [Component, System]
+    # - type: url
+    #   target: https://github.com/devurandomsorg/backstage-catalog/blob/main/all.yaml
+    # - type: url
+    #   target: https://github.com/devurandomsorg/backstage-catalog/blob/main/acme-corp.yaml
+    # - type: url
+    #   target: https://github.com/devurandomsorg/backstage-catalog/blob/main/acme-corp.yaml
+    - type: url
+      target: https://github.com/redhat-developer/red-hat-developer-hub-software-templates/blob/main/templates.yaml
+    - type: url
+      target: https://github.com/b4mad/racing-manifests/blob/main/catalog-info.yaml
+      # rules:
+      #   - allow: [Component, User, Group, Domain]
+  providers:
+    github:
+      providerId:
+        organization: 'b4mad'
+        schedule:
+          initialDelay: { seconds: 30 }
+          frequency: { hours: 1 }
+          timeout: { minutes: 50 }
+    githubOrg:
+      id: development
+      githubUrl: https://github.com
+      orgs: ['b4mad']
+      schedule:
+        initialDelay: { seconds: 30 }
+        frequency: { hours: 1 }
+        timeout: { minutes: 50 }
+
+kubernetes:
+  customResources:
+    - group: 'route.openshift.io'
+      apiVersion: 'v1'
+      plural: 'routes'
+    # - group: 'tekton.dev'
+    #   apiVersion: 'v1'
+    #   plural: 'pipelines'
+    # - group: 'tekton.dev'
+    #   apiVersion: 'v1'
+    #   plural: 'pipelineruns'
+    # - group: 'tekton.dev'
+    #   apiVersion: 'v1'
+    #   plural: 'taskruns'
+
+permission:
+  enabled: true
+  rbac:
+    policies-csv-file: ./rbac-policy.csv
+    policyFileReload: true
+    admin:
+      users:
+        - name: user:default/durandom
+        - name: user:default/goern

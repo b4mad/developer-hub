@@ -20,6 +20,15 @@ global:
       - disabled: false
         package: >-
           ./dynamic-plugins/dist/janus-idp-backstage-plugin-rbac
+      - disabled: false
+        package: >-
+          ./dynamic-plugins/dist/backstage-plugin-kubernetes
+      - disabled: false
+        package: >-
+          ./dynamic-plugins/dist/backstage-plugin-kubernetes-backend-dynamic
+      - disabled: false
+        package: >-
+          ./dynamic-plugins/dist/janus-idp-backstage-plugin-topology
 
   # -- Shorthand for users who do not want to specify a custom HOSTNAME. Used ONLY with the DEFAULT upstream.backstage.appConfig value and with OCP Route enabled.
   clusterRouterBase: ""

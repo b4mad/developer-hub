@@ -1,0 +1,15 @@
+nameReference:
+- kind: ConfigMap
+  fieldSpecs:
+  - path: spec/application/appConfig/configMaps/name
+    kind: Backstage
+  - path: spec/application/extraFiles/configMaps/name
+    kind: Backstage
+  - path: spec/application/dynamicPluginsConfigMapName
+    kind: Backstage
+- kind: Secret
+  fieldSpecs:
+  - path: spec/application/extraEnvs/secrets/name
+    kind: Backstage
+  - path: spec/application/extraFiles/secrets/name
+    kind: Backstage

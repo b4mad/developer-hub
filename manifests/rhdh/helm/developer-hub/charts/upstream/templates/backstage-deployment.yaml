@@ -30,7 +30,7 @@ spec:
         app.kubernetes.io/component: backstage
       annotations:
         checksum/app-config: 10b4301cf03508cb70ab18f75d85b461c9c23675b4e8f8bc421420716e7b5e75
-        checksum/dynamic-plugins: '1bade16f2ad468f09bc105c194c9432390663816ee5c6232043217970295e13d'
+        checksum/dynamic-plugins: '5b889c601e0072c82ac5855175f64ccfce3b45a09e232e91b23c4350a49efa49'
     spec:
       serviceAccountName: default
       volumes:
@@ -127,8 +127,6 @@ spec:
               value: "5432"
             - name: POSTGRES_USER
               value: bn_backstage
-            # - name: LOG_LEVEL
-            #   value: debug
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
