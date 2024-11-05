@@ -1,0 +1,64 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: proxy-sa
+---
+apiVersion: security.openshift.io/v1
+kind: SecurityContextConstraints
+metadata:
+  name: proxy-scc
+allowPrivilegedContainer: false
+allowHostNetwork: false
+allowHostPorts: false
+allowHostPID: false
+allowHostIPC: false
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: MustRunAs
+fsGroup:
+  type: RunAsAny
+supplementalGroups:
+  type: RunAsAny
+users:
+- system:serviceaccount:b4mad-developer-hub:proxy-sa
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logging-proxy
+  labels:
+    app: logging-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: logging-proxy
+  template:
+    metadata:
+      labels:
+        app: logging-proxy
+    spec:
+      serviceAccountName: proxy-sa
+      containers:
+      - name: mitmproxy
+        image: mitmproxy/mitmproxy:10.1.1
+        args: ["mitmdump", "--listen-host", "0.0.0.0", "--listen-port", "8080", "-v"]
+        ports:
+        - containerPort: 8080
+        securityContext:
+          runAsUser: 0
+          allowPrivilegeEscalation: true
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: logging-proxy
+spec:
+  selector:
+    app: logging-proxy
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
